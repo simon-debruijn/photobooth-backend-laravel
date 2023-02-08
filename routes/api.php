@@ -19,23 +19,12 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-/**
- * `GET` `/api/users/me`
- * `POST` `/api/users/register`
- * `POST` `/api/users/login`
- */
 Route::prefix('users')->group(function () {
     Route::get('/me', [UserController::class, 'me']);
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
 });
 
-/**
- * `GET` `/api/orders`
- * `GET` `/api/orders/:id`
- * `POST` `/api/orders`
- * `GET` `/api/orders/:id/images`
- */
 Route::prefix('orders')->group(function () {
     Route::get('/', [OrderController::class, 'index']);
     Route::post('/', [OrderController::class, 'create']);
